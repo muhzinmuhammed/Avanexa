@@ -18,9 +18,10 @@ const globalData = {
 };
 const userSignup = async (req, res) => {
     try {
-        console.log(req.body);
+       
 
         const { username, useremail, password, phone } = req.body;
+        
 
         if (!username || !useremail || !password || !phone) {
             return res.status(400).json({ message: "All fields are required" });
@@ -40,9 +41,13 @@ const userSignup = async (req, res) => {
             password,
         };
 
+        console.log(user,"o");
+
         globalData.user = user;
 
+
         if (user) {
+            console.log("kk",user);
             const mail = sendMail(user.useremail, res);
             globalData.otp = mail;
         } else {
