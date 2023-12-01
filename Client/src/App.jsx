@@ -5,6 +5,7 @@ import UserOtp from "./Components/UserComponets/SignUp/Otp";
 import './App.css'
 import Login from "./Components/UserComponets/Login/Login";
 import HomePage from "./Pages/HomePage";
+import AddPosts from "./Pages/AddPost";
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
       <Route path="/user_otp" element={<UserOtp />} />
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<HomePage />} />
+      <Route path="/add_post" element={<AddPosts/>}/>
       </Routes>
     </Router>
     
