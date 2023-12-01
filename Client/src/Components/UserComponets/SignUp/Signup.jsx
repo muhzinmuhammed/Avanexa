@@ -1,12 +1,12 @@
 import  { useState } from "react";
-import { Form, Card, Container } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Form, Card, Container,Col,Row,Button } from "react-bootstrap";
+import {  useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import NavbarHeader from "../Navbar/Navbar";
 
-import axiosInstance from "../../../../AxiosEndPoint/axiosEnd";
+import axiosInstance from "../../../AxiosEndPoint/axiosEnd";
 
 function Signup() {
   const [username, setName] = useState("");
@@ -91,75 +91,86 @@ if (!isNameValid(trimmedName)) {
 
   return (
    
-      <div className="bg-light vh-100 d-flex justify-content-center align-items-center">
+      <>
         <NavbarHeader />
         <ToastContainer />
-        <Container>
-          <div className="d-flex justify-content-center mt-5">
-            <Card className="p-5 shadow w-50">
-              <h2 className="mb-4 heading text-center">Prominent</h2>
-              <Form onSubmit={(e) => handleSubmit(e)}>
-                <Form.Group className="mb-3" controlId="formBasicName">
-                  <Form.Label>Full Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Please Enter Your Full Name"
-                    value={username}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </Form.Group>
+        <Container className="shadow">
+         <Row>
+         <Col className="ll" style={{ marginTop: "200px" }} xs={12} md={12}>
+            <Card>
+              <Card.Body
+                style={{ height: "550px", backgroundColor: "#1eb2a6 " }}
+              >
+                <Form onSubmit={(e) => handleSubmit(e)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    value={useremail}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
-                  <Form.Label>Phone Number</Form.Label>
-                  <Form.Control
-                    type="tel"
-                    placeholder="Enter Phone Number"
-                    value={phone}
-                    onChange={(e) =>
-                      setPhone(e.target.value)
-                    }
-                  />
-                </Form.Group>
+                    <Form.Label className="email">Full Name</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Full Name "
+                      value={username}
+                      onChange={(e) => setName(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label className="email">Email address</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter email"
+                      value={useremail}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label className="email">Phone</Form.Label>
+                    <Form.Control
+                      type="number"
+                      placeholder="Enter email"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                    />
+                  </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
-                  <Form.Label>Confirm Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Re-Password"
-                    value={confirmpassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                  />
-                </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label className="email">Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label className="email">Confirm-Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Confirm-Password"
+                      value={confirmpassword}
+                      onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                  </Form.Group>
 
-                <button type="submit" className="btn btn-info btn-lg btn-block">Register</button>
+                  <Button
+                    type="submit"
+                    style={{
+                      backgroundColor: "  #fff ",
+                      border: "none",
+                      color: "  #1eb2a6 ",
+                      marginLeft: "200px",
+                      marginTop: "30px",
+                    }}
+                    className="w-50"
+                  >
+                  Sign up
+                  </Button>
+                 
+                </Form>
                
-              </Form>
-              <div className="mt-3">
-                <p className="mb-0">
-                  Already have an account? <Link to={"/login"}>Login</Link>
-                </p>
-              </div>
+              </Card.Body>
             </Card>
-          </div>
+          </Col>
+         </Row>
         </Container>
-      </div>
+  </>
     
   );
 }

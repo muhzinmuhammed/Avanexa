@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import {  signup } from "../../../../feature/userSlice";
-import axiosInstance from "../../../../AxiosEndPoint/axiosEnd";
+import {  signup } from "../../../feature/userSlice";
+import axiosInstance from "../../../AxiosEndPoint/axiosEnd";
 const UserOtp = () => {
   const [otp, setOtp] = useState("");
   const navigate = useNavigate();
@@ -88,6 +88,7 @@ const UserOtp = () => {
                   value={otp}
                   onChange={(e) => setOtp(e.target.value)}
                 />
+                <span>Please check your mail</span>
               </Form.Group>
               <Button type="submit" className="w-100">
                 Submit

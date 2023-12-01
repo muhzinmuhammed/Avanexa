@@ -2,13 +2,13 @@ import  { useState, useEffect } from "react";
 import { Form, Card, Container, Button, Col, Row } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
 import { useDispatch } from "react-redux";
-import {  signup } from "../../../../feature/userSlice";
+import {  signup } from "../../../feature/userSlice";
 
 
 import NavbarHeader from "../Navbar/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import axiosInstance from "../../../../AxiosEndPoint/axiosEnd";
+import axiosInstance from "../../../AxiosEndPoint/axiosEnd";
 
 function Login() {
   const [useremail, setEmail] = useState("");
@@ -53,12 +53,10 @@ function Login() {
       <NavbarHeader />
       <ToastContainer />
 
-      <Container fluid style={{ marginTop: "200px" }}>
+      <Container className="shadow"  style={{ marginTop: "200px" }}>
         <Row>
-          <Col xs={12} md={6}>
-            <img style={{ width: "100%",height:'320px' }} src={"https://images.unsplash.com/photo-1501618669935-18b6ecb13d6d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bm90ZWJvb2t8ZW58MHx8MHx8fDA%3D"} alt="kk" />
-          </Col>
-          <Col className="ll" xs={12} md={6}>
+        
+          <Col className="ll" xs={12} md={12}>
             <Card>
               <Card.Body
                 style={{ height: "320px", backgroundColor: "#1eb2a6 " }}
@@ -93,13 +91,13 @@ function Login() {
                       marginLeft: "200px",
                       marginTop: "30px",
                     }}
-                    className="w-50"
+                    className="w-50 btn-lg"
                   >
                     Log In
                   </Button>
                  
                 </Form>
-                <Link style={{ textDecoration: 'none' ,color:'#fff' }} to={'/forget_password'} >Forgot PassWord </Link>
+              
               </Card.Body>
             </Card>
           </Col>
