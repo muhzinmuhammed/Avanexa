@@ -147,9 +147,9 @@ const Home = () => {
         </Row>
 
         <Row className="mt-5">
-          {searchResults && searchResults.length === 0 ? (
+          {searchResults && searchResults.length  === 0 || post.length === 0 ? (
             <Col className="mt-5 text-center">
-              <h2>No posts found for the search criteria</h2>
+              <h2>No posts found </h2>
             </Col>
           ) : (
             currentPosts.map((post) => (

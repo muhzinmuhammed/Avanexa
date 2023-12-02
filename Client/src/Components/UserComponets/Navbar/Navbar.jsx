@@ -28,7 +28,7 @@ function NavbarHeader() {
   return (
     <Navbar fixed="top" expand="lg" className="header">
       <Container>
-        <Navbar.Brand className="logo" href="#">
+        <Navbar.Brand  className="logo" href="/">
         Avanexa
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
