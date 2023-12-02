@@ -8,12 +8,14 @@ import { IoPricetagOutline,IoPricetag } from "react-icons/io5";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 
+
 const Home = () => {
   const [post, setPost] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3); // Adjust the number of posts per page
   const [searchValue, setSearchValue] = useState("");
-
+  
+  
   const baseUrl =
     "http://res.cloudinary.com/dfnwvbiyy/image/upload/v1694269781";
   const storedUserDataString = localStorage.getItem("userData");
@@ -26,14 +28,14 @@ const Home = () => {
   useEffect(() => {
     // Fetch data from your API using Axios
     axiosInstance
-      .get(`/user/get_post/${storedUserData._id}`)
+      .get(`/user/get_post/${storedUserData?._id}`)
       .then((response) => {
-        setPost(response.data.posts);
+        setPost(response?.data?.posts);
       })
       .catch((error) => {
         toast.error(error.message);
       });
-  }, [storedUserData._id]);
+  }, []);
 
   /*delete post*/
   const deletePost = async (id) => {
@@ -144,7 +146,7 @@ const Home = () => {
     </a>
   </Col>
   <Col xs={12} md={4}>
-    <a href={`/saved_post/${storedUserData._id}`} className="btn btn-lg bg-info mt-5 text-white">
+    <a href={`/saved_post/${storedUserData?._id}`} className="btn btn-lg bg-info mt-5 text-white">
       Tagged Post
     </a>
   </Col>

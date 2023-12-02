@@ -43,8 +43,13 @@ function Login() {
     }
   };
   useEffect(() => {
-    if (localStorage.getItem("userData")) {
+    const userData = localStorage.getItem("userData");
+    const parseData = userData ? JSON.parse(userData) : null;
+    if (parseData) {
       navigate("/");
+    }else{
+      navigate("/login");
+
     }
   }, [navigate]);
 
