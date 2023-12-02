@@ -9,24 +9,34 @@ import AddPosts from "./Pages/AddPost";
 
 import SavedPostPage from "./Pages/SavedPostPage";
 import EditPostPage from "./Pages/EditPostPage";
+import NotFoundPage from "./Pages/404";
 
 function App() {
-  
+
 
   return (
     <>
-    <Router>
-      <Routes>
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/user_otp" element={<UserOtp />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<HomePage />} />
-      <Route path="/add_post" element={<AddPosts/>}/>
-      <Route path="/saved_post/:id" element={<SavedPostPage/>}/>
-      <Route path="/edit_post/:id" element={<EditPostPage/>}/>
-      </Routes>
-    </Router>
-    
+      <Router>
+        <Routes>
+          {/* signup page */}
+          <Route path="/signup" element={<Signup />} />
+          {/* otp page */}
+          <Route path="/user_otp" element={<UserOtp />} />
+          {/* login page */}
+          <Route path="/login" element={<Login />} />
+          {/* Home page */}
+          <Route path="/" element={<HomePage />} />
+          {/* Add Post page */}
+          <Route path="/add_post" element={<AddPosts />} />
+          {/* Saved Post page */}
+          <Route path="/saved_post/:id" element={<SavedPostPage />} />
+          {/* edit post page */}
+          <Route path="/edit_post/:id" element={<EditPostPage />} />
+          {/* 404 page */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Router>
+
     </>
   )
 }

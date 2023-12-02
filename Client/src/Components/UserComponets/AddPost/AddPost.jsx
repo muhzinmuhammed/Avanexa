@@ -1,4 +1,4 @@
-import  { useState,useEffect } from 'react'
+import  { useState } from 'react'
 import {Col,Container,Row,Button,Form,Card} from 'react-bootstrap'
 import axiosInstance from "../../../AxiosEndPoint/axiosEnd";
 import { toast, ToastContainer } from "react-toastify"
@@ -10,7 +10,7 @@ const AddPost = () => {
     const [description,setDescription]=useState('')
     const [content,setContent] =useState('')
     const [imageUrl,setImageUrl]=useState('')
-    const [filesUrl,setFileUrl]=useState('')
+    
     const [cloudinaryURL,setCloudinaryURL]=useState('')
     const storedUserDataString = localStorage.getItem("userData");
 

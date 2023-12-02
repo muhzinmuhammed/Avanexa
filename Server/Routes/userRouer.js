@@ -20,7 +20,7 @@ userRouer.post("/signup_verify", userSingupVerifyOtp);
 /*user login with otp*/
 
 /*add post*/
-userRouer.post('/add_post',protect,AddPost)
+userRouer.post('/add_post',AddPost)
 /*add post*/
 
 /*get post*/

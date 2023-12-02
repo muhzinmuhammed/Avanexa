@@ -7,10 +7,10 @@ const AddPosts = () => {
   useEffect(() => {
     const userData = localStorage.getItem("userData");
     const parseData = userData ? JSON.parse(userData) : null;
-    if (parseData) {
-      navigate("/");
-    }else{
+    if (!parseData) {
       navigate("/login");
+    }else{
+      navigate("/add_post");
 
     }
   }, [navigate]);

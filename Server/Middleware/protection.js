@@ -7,7 +7,7 @@ dotenv.config();
 const protect = async (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1]; // Use optional chaining to handle potential undefined headers
   const JWT_SECRET = process.env.JWT_SECRET; // Assuming JWT_SECRET is a string in your .env file
-console.log(token,"oo");
+
   if (token) {
     try {
       const decoded = jwt.verify(token, JWT_SECRET);
