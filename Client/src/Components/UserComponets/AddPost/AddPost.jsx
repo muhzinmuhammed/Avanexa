@@ -49,7 +49,7 @@ const AddPost = () => {
           .then((response) => {
             console.log(response.data);
             
-            toast.success("Course added successfully");
+            toast.success("Post added successfully");
             setTimeout(() => {
                 navigate("/");
                 

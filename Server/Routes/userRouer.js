@@ -1,6 +1,6 @@
 import express from "express";
 import { userSignup,loginUser,userSingupVerifyOtp } from "../Controller/userController.js";
-import { getUserPost,AddPost,deletPost,handleSearch, userSavedPost, userUnSavedPost, savedPosts } from "../Controller/PostController.js";
+import { getUserPost,AddPost,deletPost,handleSearch, userSavedPost, userUnSavedPost, savedPosts, editPost, updatePost } from "../Controller/PostController.js";
 
 
 const userRouer = express.Router();
@@ -53,7 +53,12 @@ userRouer.get('/saved_post/:id',savedPosts)
 
 /*user saved post*/
 
+/*edit post*/
+userRouer.get('/edit_post/:id',editPost)
 
+/*edit post*/
+
+userRouer.put('/upate_post/:id',updatePost)
 
 
 

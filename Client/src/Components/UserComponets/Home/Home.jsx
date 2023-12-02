@@ -109,6 +109,7 @@ const Home = () => {
       console.error("Error:", error);
     }
   };
+  
 
   /* pagination */
   const indexOfLastPost = currentPage * postsPerPage;
@@ -168,7 +169,9 @@ const Home = () => {
                 <p className="text-center" style={{ wordBreak: "break-all" }}>{post?.description}</p>
               </Col>
               <Col className="mt-5 " xs={4}>
-                <FaEdit className="me-4" />
+              <a style={{textDecoration:'none' }} href={`/edit_post/${post._id}`}>
+  <FaEdit style={{ cursor: 'pointer',}} className="me-4" />
+</a>
                 {post?.star ? (
                           <Button
                             variant="none"

@@ -8,6 +8,7 @@ import HomePage from "./Pages/HomePage";
 import AddPosts from "./Pages/AddPost";
 
 import SavedPostPage from "./Pages/SavedPostPage";
+import EditPostPage from "./Pages/EditPostPage";
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/add_post" element={<AddPosts/>}/>
       <Route path="/saved_post/:id" element={<SavedPostPage/>}/>
+      <Route path="/edit_post/:id" element={<EditPostPage/>}/>
       </Routes>
     </Router>
     
