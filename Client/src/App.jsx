@@ -7,6 +7,8 @@ import Login from "./Components/UserComponets/Login/Login";
 import HomePage from "./Pages/HomePage";
 import AddPosts from "./Pages/AddPost";
 
+import SavedPostPage from "./Pages/SavedPostPage";
+
 function App() {
   
 
@@ -19,6 +21,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/add_post" element={<AddPosts/>}/>
+      <Route path="/saved_post/:id" element={<SavedPostPage/>}/>
       </Routes>
     </Router>
     

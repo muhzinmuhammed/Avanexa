@@ -1,6 +1,7 @@
 import express from "express";
 import { userSignup,loginUser,userSingupVerifyOtp } from "../Controller/userController.js";
-import { getUserPost,AddPost,deletPost,handleSearch } from "../Controller/PostController.js";
+import { getUserPost,AddPost,deletPost,handleSearch, userSavedPost, userUnSavedPost, savedPosts } from "../Controller/PostController.js";
+
 
 const userRouer = express.Router();
 
@@ -30,6 +31,28 @@ userRouer.get('/get_post/:id',getUserPost)
 userRouer.delete('/delete_post/:id',deletPost)
 
 /*delete post*/
+
+/*search post*/
+userRouer.post('/search',handleSearch)
+/*search post*/
+
+
+/*saved post*/
+userRouer.patch('/post_save/:id',userSavedPost)
+
+/*saved post*/
+
+/*unsaved post*/
+userRouer.patch('/post_unsave/:id',userUnSavedPost)
+
+/*unsaved post*/
+
+
+/*user saved post*/
+userRouer.get('/saved_post/:id',savedPosts)
+
+/*user saved post*/
+
 
 
 

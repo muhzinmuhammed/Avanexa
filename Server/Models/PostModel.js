@@ -29,15 +29,12 @@ const PostSchema = new Schema(
          type: Schema.Types.ObjectId,
          ref: "user"
          },
-         tagged:{
+         star:{
           type: Boolean,
           default:false,
           required: true
         },
-        isActive:{
-          type:Boolean,
-          default:true
-        }
+
   },
   
   {
@@ -48,4 +45,4 @@ const PostSchema = new Schema(
 PostSchema.index({title: "text"});
 PostSchema.index({content: "text"});
 
-export default model("note", PostSchema);
+export default model("post", PostSchema);

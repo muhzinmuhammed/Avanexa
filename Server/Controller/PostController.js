@@ -86,9 +86,12 @@ const deletPost=async(req,res)=>{
 
 const handleSearch = async (req, res, next) => {
     const {searchItem} = req.body;
+
+    console.log(req.body);
     
   try {
     const results = await PostModel.find({$text: {$search: searchItem}});
+    console.log(results);
    
     res.status(200).json({results});
    
@@ -102,5 +105,92 @@ const handleSearch = async (req, res, next) => {
 /*search*/
 
 
+/*saved post*/
 
-export {AddPost,getUserPost,deletPost,handleSearch}
+const userSavedPost = async (req, res) => {
+    try {
+        console.log(req.params);
+      const { id } = req.params;
+  
+      const postFind = await PostModel.findById(id);
+  console.log(postFind);
+      if (postFind) {
+        const updatedFind = await PostModel.findByIdAndUpdate(
+          id,
+          { star: true },
+          { new: true }
+        );
+  
+        res.status(200).json({ updatedFind });
+      } else {
+        res.status(404).json({ message: "Note not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  };
+
+
+/*saved post*/
+
+/*unsaved post*/
+
+const userUnSavedPost = async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      console.log(req.params,"oooooooooo");
+  
+      const postFind = await PostModel.findById(id);
+
+      console.log(postFind,"ooo");
+  
+      if (postFind) {
+        const updatedFind = await PostModel.findByIdAndUpdate(
+          id,
+          { star: false },
+          { new: true }
+        );
+        
+  
+        res.status(200).json({ updatedFind });
+      } else {
+        res.status(404).json({ message: "Note not found" });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  };
+
+/*unsaved post*/
+
+
+/*saved posts*/
+
+const savedPosts=async(req,res)=>{
+    try {
+        const {id}=req.params
+        const savedPost=await PostModel.find({userId:id}).where({star:true})
+        if (savedPost) {
+            return res.status(200).json({savedPost})
+            
+        }else{
+            return res.status(400).json({Messge:'No Posts'})
+
+        }
+
+
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+
+/*saved posts*/
+
+
+
+export {AddPost,getUserPost,deletPost,handleSearch,userSavedPost,userUnSavedPost,savedPosts}
