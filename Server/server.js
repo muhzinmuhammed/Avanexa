@@ -19,7 +19,9 @@ app.use("/user", userRouter);
 
 connectToDb();
 
-app.listen(PORT)
+app.listen(PORT,()=>{
+    console.log("Server started");
+})
 
 
 

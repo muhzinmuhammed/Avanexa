@@ -14,6 +14,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     signup:(state, action) =>{
+      
         state.user = action.payload;
 
     },
